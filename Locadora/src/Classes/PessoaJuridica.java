@@ -11,8 +11,8 @@ public class PessoaJuridica extends Cliente {
     private String cnpj;
     private String inscrição_Estadual;
 
-    public PessoaJuridica(String cnpj, String inscrição_Estadual, int código, String nome, int logradouro, int numero, String bairro, String municipio, String estado, String cep, String telefone, int maxMidia) {
-        super(código, nome, logradouro, numero, bairro, municipio, estado, cep, telefone, maxMidia);
+    public PessoaJuridica(String cnpj, String inscrição_Estadual, int codigo, String nome, String logradouro, int numero, String bairro, String municipio, String estado, int cep, int telefone, int maxMidia) {
+        super(codigo, nome, logradouro, numero, bairro, municipio, estado, cep, telefone, maxMidia);
         this.cnpj = cnpj;
         this.inscrição_Estadual = inscrição_Estadual;
     }

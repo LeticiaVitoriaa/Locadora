@@ -18,17 +18,11 @@ public class PessoaFisica extends Cliente {
     private int cpf;
     private int identidade;
 
-    public PessoaFisica(int cpf, int identidade, int código, String nome, int logradouro, int numero, String bairro, String municipio, String estado, String cep, String telefone, int maxMidia) {
-        super(código, nome, logradouro, numero, bairro, municipio, estado, cep, telefone, maxMidia);
+    public PessoaFisica(int cpf, int identidade, int codigo, String nome, String logradouro, int numero, String bairro, String municipio, String estado, int cep, int telefone, int maxMidia) {
+        super(codigo, nome, logradouro, numero, bairro, municipio, estado, cep, telefone, maxMidia);
         this.cpf = cpf;
         this.identidade = identidade;
     }
-
-    public PessoaFisica(int cpf, int identidade) {
-        this.cpf = cpf;
-        this.identidade = identidade;
-    }
-
     public PessoaFisica() {
 
     }
@@ -52,9 +46,9 @@ public class PessoaFisica extends Cliente {
     public PessoaFisica CadastrarPessoa() {
 
         System.out.println("CPF: ");
-        this.cpf = in.next();
+        this.cpf = in.nextInt();
         System.out.println("IDENTIDADE: ");
-        this.identidade = in.next();
+        this.identidade = in.nextInt();
         //super.CadastrarCliente();
 
         PessoaFisica pessoa = new PessoaFisica(this.cpf, this.identidade);
