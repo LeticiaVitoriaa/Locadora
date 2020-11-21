@@ -1,44 +1,93 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Classes;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-/**
- *
- * @author clara
- */
 public class Cliente {
-    private int codigo;
-    private String nome;
-    private String logradouro;
-    private int numero;
-    private String bairro;
-    private String municipio;
-    private String estado;
-    private int cep;
-    private int telefone;
-    private int maxMidia;
 
-    public Cliente(int codigo, String nome, String logradouro, int numero, String bairro, String municipio, String estado, int cep, int telefone, int maxMidia) {
+    Scanner in = new Scanner(System.in);
+    public String codigo, nome, logradouro, bairro, municipio, estado, telefone, cep;
+    public int numero;
+    final int MAX_MIDIAS = 5;
+
+    public void cadastraCliente() {
+        System.out.println("Insira o código: ");
+        this.codigo = in.nextLine();
+        System.out.println("Insira o nome: ");
+        this.nome = in.nextLine();
+        System.out.println("Insira o telefone: ");
+        this.telefone = in.nextLine();
+        System.out.println("Insira o logradouro: ");
+        this.logradouro = in.nextLine();
+        System.out.println("Insira o bairro: ");
+        this.bairro = in.nextLine();
+        System.out.println("Insira o município: ");
+        this.municipio = in.nextLine();
+        System.out.println("Insira o estado: ");
+        this.estado = in.nextLine();
+        System.out.println("Insira o número: ");
+        this.numero = in.nextInt();
+        System.out.println("Insira o CEP: ");
+        this.cep = in.nextLine();
+    }
+
+    public void excluiCliente(ArrayList arrayCliente, Cliente cliente) {
+        System.out.println("\nVocê tem certeza que deseja exluir esse cliente?"
+                + "\n1 - SIM"
+                + "\n2 - NÃO");
+        int opcao = in.nextInt();
+        switch (opcao) {
+            case 1:
+                arrayCliente.remove(cliente);
+                System.out.println("\nCliente exluído com sucesso\n");
+                break;
+            case 2:
+                System.out.println("\nOperação cancelada\n");
+                break;
+        }
+    }
+
+    public boolean verificaCadastrosCliente(ArrayList arrayCliente) {
+        return arrayCliente.isEmpty();
+    }
+    public void imprimeCliente(){
+        System.out.println("Código: " +this.codigo);
+        System.out.println("Nome: " +this.nome);
+        System.out.println("Logradouro: " +this.logradouro);
+        System.out.println("Número: " +this.numero);
+        System.out.println("Bairro: " +this.bairro);
+        System.out.println("Município: " +this.municipio);
+        System.out.println("Estado: " +this.estado);
+        System.out.println("Telefone: " +this.telefone);
+        System.out.println("CEP: " +this.cep);
+    }
+    public Cliente(String codigo, String nome, String logradouro, String bairro, String municipio, String estado, String telefone, String cep, int numero) {
         this.codigo = codigo;
         this.nome = nome;
         this.logradouro = logradouro;
-        this.numero = numero;
         this.bairro = bairro;
         this.municipio = municipio;
         this.estado = estado;
-        this.cep = cep;
         this.telefone = telefone;
-        this.maxMidia = maxMidia;
+        this.cep = cep;
+        this.numero = numero;
     }
 
-    public int getCodigo() {
+    public Cliente() {
+    }
+
+    public Scanner getIn() {
+        return in;
+    }
+
+    public void setIn(Scanner in) {
+        this.in = in;
+    }
+
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -56,14 +105,6 @@ public class Cliente {
 
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
     }
 
     public String getBairro() {
@@ -90,27 +131,27 @@ public class Cliente {
         this.estado = estado;
     }
 
-    public int getCep() {
-        return cep;
-    }
-
-    public void setCep(int cep) {
-        this.cep = cep;
-    }
-
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    public int getMaxMidia() {
-        return maxMidia;
+    public String getCep() {
+        return cep;
     }
 
-    public void setMaxMidia(int maxMidia) {
-        this.maxMidia = maxMidia;
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 }

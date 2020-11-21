@@ -1,11 +1,6 @@
 package Classes;
-
 import java.util.*;
 
-/**
- *
- * @author Letícia
- */
 public class Mídia {
 
     private int codigo;
@@ -54,7 +49,7 @@ public class Mídia {
         Scanner leitor = new Scanner(System.in);
         int codigo, opc;
 
-        System.out.println("Digite o código da mídia: ");
+        System.out.println("Insira o código da mídia: ");
         codigo = leitor.nextInt();
         for (int i = 0; i < midia.size(); i++) {
             System.out.println("Realmente deseja excluir essa mídia?");

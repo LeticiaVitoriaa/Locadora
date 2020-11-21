@@ -2,48 +2,31 @@ package Classes;
 
 import java.util.*;
 
-/**
- *
- * @author Letícia
- */
 public class PessoaJuridica extends Cliente {
 
     private String cnpj;
     private String inscrição_Estadual;
 
-    public PessoaJuridica(String cnpj, String inscrição_Estadual, int codigo, String nome, String logradouro, int numero, String bairro, String municipio, String estado, int cep, int telefone, int maxMidia) {
-        super(codigo, nome, logradouro, numero, bairro, municipio, estado, cep, telefone, maxMidia);
-        this.cnpj = cnpj;
-        this.inscrição_Estadual = inscrição_Estadual;
-    }
-
-    public PessoaJuridica(String cnpj, String inscrição_Estadual) {
-        this.cnpj = cnpj;
-        this.inscrição_Estadual = inscrição_Estadual;
-    }
-
-    public PessoaJuridica() {
-
-    }
-
-    public PessoaJuridica CadastrarPaciente() {
+    public PessoaJuridica CadastrarPessoaJuridica() {
         Scanner leitor = new Scanner(System.in);
 
-        System.out.println("CNPJ: ");
+        System.out.println("Insira o CNPJ: ");
         this.cnpj = leitor.next();
-        System.out.println("Inscrição Estadual: ");
+        System.out.println("Insira a Inscrição Estadual: ");
         this.inscrição_Estadual = leitor.next();
 
-        //super.CadastrarCliente();
-        PessoaJuridica paciente = new PessoaJuridica(this.cnpj, this.inscrição_Estadual);
-        return paciente;
+        super.cadastraCliente();
+        PessoaJuridica pessoaJuridica = new PessoaJuridica(this.cnpj, this.inscrição_Estadual, this.codigo,
+                this.nome, this.logradouro, this.bairro,
+                this.municipio, this.estado, this.telefone, this.cep, this.numero);
+        return pessoaJuridica;
     }
 
     public void ConsultarPessoaJuridica(ArrayList clientes) {
         Scanner leitor = new Scanner(System.in);
         String cnpj;
 
-        System.out.println("Digite o cpf: ");
+        System.out.println("Insira o CNPJ: ");
         cnpj = leitor.next();
 
         for (int i = 0; i < clientes.size(); i++) {
@@ -62,23 +45,31 @@ public class PessoaJuridica extends Cliente {
     public void ImprimirDadosPessoaJuridica() {
         System.out.println("CNPJ: " + this.cnpj + " ");
         System.out.println("Inscrição Estadual: " + this.inscrição_Estadual + " ");
-        //super.ImprimirDadosCliente();
+        super.imprimeCliente();
+    }
+
+    public PessoaJuridica(String cnpj, String inscrição_Estadual, String codigo, String nome, String logradouro, String bairro, String municipio, String estado, String telefone, String cep, int numero) {
+        super(codigo, nome, logradouro, bairro, municipio, estado, telefone, cep, numero);
+        this.cnpj = cnpj;
+        this.inscrição_Estadual = inscrição_Estadual;
+    }
+
+    public PessoaJuridica() {
     }
 
     public String getCnpj() {
         return cnpj;
     }
 
-    public String getInscrição_Estadual() {
-        return inscrição_Estadual;
-    }
-
     public void setCnpj(String cnpj) {
         this.cnpj = cnpj;
+    }
+
+    public String getInscrição_Estadual() {
+        return inscrição_Estadual;
     }
 
     public void setInscrição_Estadual(String inscrição_Estadual) {
         this.inscrição_Estadual = inscrição_Estadual;
     }
-
 }

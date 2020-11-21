@@ -1,73 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Classes;
 
 import java.util.*;
 
-/**
- *
- * @author clara
- */
 public class PessoaFisica extends Cliente {
 
     Scanner in = new Scanner(System.in);
 
-    private int cpf;
-    private int identidade;
-
-    public PessoaFisica(int cpf, int identidade, int codigo, String nome, String logradouro, int numero, String bairro, String municipio, String estado, int cep, int telefone, int maxMidia) {
-        super(codigo, nome, logradouro, numero, bairro, municipio, estado, cep, telefone, maxMidia);
-        this.cpf = cpf;
-        this.identidade = identidade;
-    }
-    public PessoaFisica() {
-
-    }
-
-    public int getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
-    }
-
-    public int getIdentidade() {
-        return identidade;
-    }
-
-    public void setIdentidade(int identidade) {
-        this.identidade = identidade;
-    }
+    private String cpf, identidade;
 
     public PessoaFisica CadastrarPessoa() {
 
-        System.out.println("CPF: ");
-        this.cpf = in.nextInt();
-        System.out.println("IDENTIDADE: ");
-        this.identidade = in.nextInt();
-        //super.CadastrarCliente();
+        System.out.println("Insira o CPF: ");
+        this.cpf = in.nextLine();
+        System.out.println("Insira a identidade: ");
+        this.identidade = in.nextLine();
+        super.cadastraCliente();
 
-        PessoaFisica pessoa = new PessoaFisica(this.cpf, this.identidade);
+        PessoaFisica pessoa = new PessoaFisica(this.cpf, this.identidade, this.codigo, this.nome, this.logradouro, this.bairro,
+                this.municipio, this.estado, this.telefone, this.cep, this.numero);
+
+        System.out.println("Pessoa física cadastrada");
         return pessoa;
     }
 
-    public void ConsultarPessoaFisica(ArrayList clientes) {
+    public void ConsultarPessoaFisica(ArrayList arrayCliente) {
 
         System.out.println("Por favor, insira seu cpf: ");
-        int cpf = in.next();
+        String cpf = in.next();
 
-        for (int i = 0; i < clientes.size(); i++) {
-            PessoaFisica pessF = (PessoaFisica) clientes.get(i);
+        for (int i = 0; i < arrayCliente.size(); i++) {
+            PessoaFisica pessF = (PessoaFisica) arrayCliente.get(i);
             if (pessF instanceof PessoaFisica) {
                 PessoaFisica pesFisica = (PessoaFisica) pessF;
                 if (pesFisica.getCpf().equals(cpf)) {
                     pesFisica.ImprimirDadosPessoaFisica();
                 }
-         }else {
+            } else {
                 System.out.println("Desculpe, não foi possível encontrar a pessoa fisíca!");
             }
         }
@@ -76,6 +44,40 @@ public class PessoaFisica extends Cliente {
     public void ImprimirDadosPessoaFisica() {
         System.out.println("CPF: " + this.cpf + " ");
         System.out.println("Identidade: " + this.identidade + " ");
-        //super.ImprimirDadosCliente();
+        super.imprimeCliente();
     }
+
+    public PessoaFisica(String cpf, String identidade, String codigo, String nome, String logradouro, String bairro, String municipio, String estado, String telefone, String cep, int numero) {
+        super(codigo, nome, logradouro, bairro, municipio, estado, telefone, cep, numero);
+        this.cpf = cpf;
+        this.identidade = identidade;
+    }
+
+    public PessoaFisica() {
+    }
+
+    public Scanner getIn() {
+        return in;
+    }
+
+    public void setIn(Scanner in) {
+        this.in = in;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getIdentidade() {
+        return identidade;
+    }
+
+    public void setIdentidade(String identidade) {
+        this.identidade = identidade;
+    }
+
 }
