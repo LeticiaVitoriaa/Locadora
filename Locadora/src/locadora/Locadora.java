@@ -96,16 +96,16 @@ public class Locadora {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
         int continuar = 1, opcMenuPrinc = 0, opcSubMidia = 0, opcSubCliente = 0, opcSubEmprestimo = 0,
-                OpcMenupessoJ = 0, OpcMenupessoF = 0;
+                OpcMenupessoJ = 0, OpcMenupessoF = 0, voltar=0;
 
         Mídia mid = new Mídia();
         Emprestimo emprestimo = new Emprestimo();
         PessoaJuridica pJuridica = new PessoaJuridica();
         PessoaFisica pFisica = new PessoaFisica();
 
-        ArrayList<Mídia> arrayMidia = new ArrayList<Mídia>();
-        ArrayList<Cliente> arrayCliente = new ArrayList<Cliente>();
-        ArrayList<Emprestimo> arrayEmprestimo = new ArrayList<Emprestimo>();
+        ArrayList<Mídia> arrayMidia = new ArrayList<>();
+        ArrayList<Cliente> arrayCliente = new ArrayList<>();
+        ArrayList<Emprestimo> arrayEmprestimo = new ArrayList<>();
 
         do {
             opcMenuPrinc = MenuPrincipal();
@@ -135,10 +135,18 @@ public class Locadora {
 
                                         case 5:
                                             System.out.println("Voltando ao menu cliente...");
+<<<<<<< Updated upstream
                                             opcSubCliente = SubmenuCliente();
                                             break;
                                     }
                                 } while (OpcMenupessoF != 5);
+=======
+                                            voltar = 5;
+                                            break;
+                                    }
+                                } while (voltar != 5);
+
+>>>>>>> Stashed changes
                                 break;
 
                             case 2:
@@ -165,9 +173,14 @@ public class Locadora {
                                             opcSubCliente = SubmenuCliente();
                                             break;
                                     }
+<<<<<<< Updated upstream
                                 } while (OpcMenupessoJ != 5);
                                 break;
+=======
+>>>>>>> Stashed changes
 
+                                } while (OpcMenupessoJ != 5);
+                                break;
                             case 3:
                                 System.out.println("Voltando ao menu principal...");
                                 break;
