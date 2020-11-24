@@ -1,4 +1,5 @@
 package Classes;
+
 import java.util.*;
 
 public class Mídia {
@@ -23,7 +24,8 @@ public class Mídia {
 
     }
 
-    public Mídia CadastrarMidia() {
+    //Cadastrar Mídia no array
+    public Mídia CadastrarMidia(ArrayList midias) {
         Scanner leitor = new Scanner(System.in);
 
         System.out.println("Título: ");
@@ -42,9 +44,11 @@ public class Mídia {
 
         Mídia mid = new Mídia(this.codigo, this.titulo, this.sipnose, this.genero, this.dublado,
                 this.preco);
+        midias.add(mid);
         return mid;
     }
 
+    //Excluir Mídia do array
     public void ExcluirMidia(ArrayList midia) {
         Scanner leitor = new Scanner(System.in);
         int codigo, opc;
@@ -52,21 +56,28 @@ public class Mídia {
         System.out.println("Insira o código da mídia: ");
         codigo = leitor.nextInt();
         for (int i = 0; i < midia.size(); i++) {
-            System.out.println("Realmente deseja excluir essa mídia?");
-            System.out.println("1. Sim");
-            System.out.println("2. Não");
-            opc = leitor.nextInt();
+            Mídia m = (Mídia) midia.get(i);
+            if (codigo == m.getCodigo()) {
+                System.out.println(" ");
+                System.out.println("Realmente deseja excluir essa mídia?");
+                System.out.println("1. Sim");
+                System.out.println("2. Não");
+                opc = leitor.nextInt();
+                
+                if (opc == 1) {
+                    midia.remove(codigo);
+                    System.out.println("Mídia excluída!");
+                } else {
+                    System.out.println("Mídia não foi excluída!");
+                }
 
-            if (codigo == getCodigo() && opc == 1) {
-                midia.remove(codigo);
-            } else if (opc == 2) {
-                System.out.println("Mídia não foi excluída!");
             } else {
                 System.out.println("Mídia não encontrada!");
             }
         }
     }
 
+    //Consultar Mídia no array
     public void ConsultarMidia(ArrayList midia) {
         Scanner leitor = new Scanner(System.in);
         int codigo;
@@ -94,6 +105,7 @@ public class Mídia {
         }
     }
 
+    //Imprimir Mídia
     public void ImprimirMídia() {
 
         System.out.println("Código: " + this.codigo);

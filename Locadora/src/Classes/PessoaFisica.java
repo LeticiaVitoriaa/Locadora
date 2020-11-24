@@ -26,7 +26,7 @@ public class PessoaFisica extends Cliente {
     }
 
     // faz cadastro
-    public PessoaFisica CadastrarPessoa() {
+    public PessoaFisica cadastraClienteFisico() {
 
         System.out.println("Insira o CPF: ");
         this.cpf = in.next();
@@ -43,7 +43,7 @@ public class PessoaFisica extends Cliente {
     }
     
     //fazer consulta
-    public void consultaCliente(ArrayList<Cliente> arrayCliente) {
+    public void consultaClienteFisico(ArrayList<Cliente> arrayCliente) {
         boolean encontrou = false;
 
         System.out.println("Insira o cpf: ");
@@ -55,9 +55,9 @@ public class PessoaFisica extends Cliente {
             if (cliente instanceof PessoaFisica) {
                 PessoaFisica pessoaFisica = (PessoaFisica) cliente;
 
-                if (pessoaFisica.getNome().equals(cpfauxiliar)) {
+                if (pessoaFisica.getCpf().equals(cpfauxiliar)) {
                     cliente.imprimeCliente();
-                    pessoaFisica.ImprimirDadosPessoaFisica();
+                    pessoaFisica.imprimeClienteFisico();
                     encontrou = true;
                 }
             }
@@ -72,7 +72,7 @@ public class PessoaFisica extends Cliente {
     }
 
     //excluir cliente
-    public void excluirCliente(ArrayList<Cliente> arrayCliente) {
+    public void excluirClienteFisico(ArrayList<Cliente> arrayCliente) {
 
         boolean encontrou = false;
         System.out.println("Nome: ");
@@ -105,14 +105,14 @@ public class PessoaFisica extends Cliente {
     }
 
     // imprimir dados
-    public void ImprimirDadosPessoaFisica() {
+    public void imprimeClienteFisico() {
         System.out.println("CPF: " + this.cpf + " ");
         System.out.println("Identidade: " + this.identidade + " ");
         super.imprimeCliente();
     }
 
     // relatório de todos
-    public void relatorioCliente(ArrayList arrayCliente) {
+    public void relatorioClienteFisico(ArrayList arrayCliente) {
         if (super.verificaCadastrosCliente(arrayCliente)) {
             System.out.println("Não há clientes cadastrados, por favor faça os cadastros!");
         } else {
@@ -123,7 +123,7 @@ public class PessoaFisica extends Cliente {
                 if (cliente instanceof PessoaFisica) {
                     PessoaFisica pessoaFisica = (PessoaFisica) cliente;
                     cliente.imprimeCliente();
-                    ImprimirDadosPessoaFisica();
+                    imprimeClienteFisico();
                 }
             }
         }

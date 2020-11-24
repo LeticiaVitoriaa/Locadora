@@ -17,7 +17,7 @@ public class PessoaJuridica extends Cliente {
 
     }
 
-    public PessoaJuridica CadastrarPessoaJuridica() {
+    public PessoaJuridica cadastraClienteJuridico() {
         Scanner leitor = new Scanner(System.in);
 
         System.out.println("Insira o CNPJ: ");
@@ -28,17 +28,17 @@ public class PessoaJuridica extends Cliente {
         super.cadastraCliente();
         PessoaJuridica pessoaJuridica = new PessoaJuridica(this.cnpj, this.inscrição_Estadual, this.codigo, this.nome, this.logradouro, this.bairro, this.municipio, this.estado, this.telefone, this.cep, this.numero);
         System.out.println("---------------------------");
-        System.out.println("Pessoa física cadastrada!");
+        System.out.println("Pessoa Juridica cadastrada!");
         System.out.println("---------------------------");
 
         return pessoaJuridica;
     }
 
     //fazer consulta
-    public void consultaCliente(ArrayList<Cliente> arrayCliente) {
+    public void consultaClienteJuridico(ArrayList<Cliente> arrayCliente) {
         boolean encontrou = false;
 
-        System.out.println("Insira o cpf: ");
+        System.out.println("Insira o CNPJ: ");
         String cnpjauxiliar;
         cnpjauxiliar = in.next();
 
@@ -47,9 +47,9 @@ public class PessoaJuridica extends Cliente {
             if (cliente instanceof PessoaJuridica) {
                 PessoaJuridica pessoaJuridica = (PessoaJuridica) cliente;
 
-                if (pessoaJuridica.getNome().equals(cnpjauxiliar)) {
+                if (pessoaJuridica.getCnpj().equals(cnpjauxiliar)) {
                     cliente.imprimeCliente();
-                    pessoaJuridica.ImprimirDadosPessoaJuridica();
+                    pessoaJuridica.imprimeCliente();
                     encontrou = true;
                 }
             }
@@ -62,9 +62,9 @@ public class PessoaJuridica extends Cliente {
             }
         }
     }
-
+     
     //excluir cliente
-    public void excluirCliente(ArrayList<Cliente> arrayCliente) {
+    public void excluiClienteJuridico(ArrayList<Cliente> arrayCliente) {
 
         boolean encontrou = false;
         System.out.println("Nome: ");
@@ -97,25 +97,25 @@ public class PessoaJuridica extends Cliente {
     }
 
     // relatório de todos
-    public void relatorioCliente(ArrayList arrayCliente) {
+    public void relatorioClienteJuridico(ArrayList arrayCliente) {
         if (super.verificaCadastrosCliente(arrayCliente)) {
             System.out.println("Não há clientes cadastrados, por favor faça os cadastros!");
         } else {
-            System.out.println("Pacientes cadastrados:");
+            System.out.println("Clientes cadastrados: ");
             for (int i = 0; i < arrayCliente.size(); i++) {
                 Cliente cliente = (Cliente) arrayCliente.get(i);
 
                 if (cliente instanceof PessoaJuridica) {
                     PessoaJuridica pessoaJuridica = (PessoaJuridica) cliente;
                     cliente.imprimeCliente();
-                    ImprimirDadosPessoaJuridica();
+                    imprimeClienteJuridico();
                 }
             }
         }
 
     }
 
-    public void ImprimirDadosPessoaJuridica() {
+    public void imprimeClienteJuridico() {
         System.out.println("CNPJ: " + this.cnpj + " ");
         System.out.println("Inscrição Estadual: " + this.inscrição_Estadual + " ");
         super.imprimeCliente();
