@@ -151,6 +151,7 @@ public class Locadora {
 
                                         case 2:
                                             pJuridica.excluiClienteJuridico(arrayCliente);
+                                            break;
 
                                         case 3:
                                             pJuridica.consultaClienteJuridico(arrayCliente);
@@ -175,10 +176,11 @@ public class Locadora {
                                 System.out.println("Pessoa selecionada não existe, tente novamente.");
                                 break;
                         }
-                        while (opcSubCliente != 3);
-                        break;
 
-                      case 2:
+                    } while (opcSubCliente != 3);
+                    break;
+
+                case 2:
                     do {
                         opcSubMidia = SubmenuMídia();
                         switch (opcSubMidia) {
@@ -206,7 +208,7 @@ public class Locadora {
                                 break;
                         }
                     } while (opcSubMidia != 5);
-                                break;
+                    break;
 
                 case 3:
                     do {
@@ -239,7 +241,9 @@ public class Locadora {
                     continuar = 0;
                     System.out.print("Saindo..");
                     break;
-             
-            }  while (continuar != 0);
+
+            }
+        } while (continuar != 0);
+
     }
 }
