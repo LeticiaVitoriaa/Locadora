@@ -96,7 +96,7 @@ public class Locadora {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
         int continuar = 1, opcMenuPrinc = 0, opcSubMidia = 0, opcSubCliente = 0, opcSubEmprestimo = 0,
-                OpcMenupessoJ = 0, OpcMenupessoF = 0, voltar=0;
+                OpcMenupessoJ = 0, OpcMenupessoF = 0;
 
         Mídia mid = new Mídia();
         Emprestimo emprestimo = new Emprestimo();
@@ -135,18 +135,10 @@ public class Locadora {
 
                                         case 5:
                                             System.out.println("Voltando ao menu cliente...");
-<<<<<<< Updated upstream
                                             opcSubCliente = SubmenuCliente();
                                             break;
                                     }
                                 } while (OpcMenupessoF != 5);
-=======
-                                            voltar = 5;
-                                            break;
-                                    }
-                                } while (voltar != 5);
-
->>>>>>> Stashed changes
                                 break;
 
                             case 2:
@@ -173,14 +165,9 @@ public class Locadora {
                                             opcSubCliente = SubmenuCliente();
                                             break;
                                     }
-<<<<<<< Updated upstream
                                 } while (OpcMenupessoJ != 5);
                                 break;
-=======
->>>>>>> Stashed changes
 
-                                } while (OpcMenupessoJ != 5);
-                                break;
                             case 3:
                                 System.out.println("Voltando ao menu principal...");
                                 break;
@@ -188,10 +175,10 @@ public class Locadora {
                                 System.out.println("Pessoa selecionada não existe, tente novamente.");
                                 break;
                         }
-                    } while (opcSubCliente != 3);
-                    break;
+                        while (opcSubCliente != 3);
+                        break;
 
-                case 2:
+                      case 2:
                     do {
                         opcSubMidia = SubmenuMídia();
                         switch (opcSubMidia) {
@@ -219,8 +206,7 @@ public class Locadora {
                                 break;
                         }
                     } while (opcSubMidia != 5);
-
-                    break;
+                                break;
 
                 case 3:
                     do {
@@ -251,13 +237,9 @@ public class Locadora {
 
                 case 0:
                     continuar = 0;
-                    System.out.println("Saindo..");
+                    System.out.print("Saindo..");
                     break;
-            }
-
-        } while (continuar
-                != 0);
-
+             
+            }  while (continuar != 0);
     }
-
 }
