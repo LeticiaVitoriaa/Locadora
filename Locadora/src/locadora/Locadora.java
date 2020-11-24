@@ -161,8 +161,8 @@ public class Locadora {
                                             break;
 
                                         case 5:
-                                            OpcMenupessoJ = 0;
                                             System.out.println("Voltando ao menu cliente...");
+                                            opcSubCliente = SubmenuCliente();
                                             break;
                                     }
                                 } while (OpcMenupessoJ != 5);
