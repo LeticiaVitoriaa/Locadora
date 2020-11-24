@@ -1,4 +1,5 @@
 package Classes;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,57 +10,7 @@ public class Cliente {
     public int numero;
     final int MAX_MIDIAS = 5;
 
-    public void cadastraCliente() {
-        System.out.println("Insira o código: ");
-        this.codigo = in.nextLine();
-        System.out.println("Insira o nome: ");
-        this.nome = in.nextLine();
-        System.out.println("Insira o telefone: ");
-        this.telefone = in.nextLine();
-        System.out.println("Insira o logradouro: ");
-        this.logradouro = in.nextLine();
-        System.out.println("Insira o bairro: ");
-        this.bairro = in.nextLine();
-        System.out.println("Insira o município: ");
-        this.municipio = in.nextLine();
-        System.out.println("Insira o estado: ");
-        this.estado = in.nextLine();
-        System.out.println("Insira o número: ");
-        this.numero = in.nextInt();
-        System.out.println("Insira o CEP: ");
-        this.cep = in.nextLine();
-    }
-
-    public void excluiCliente(ArrayList arrayCliente, Cliente cliente) {
-        System.out.println("\nVocê tem certeza que deseja exluir esse cliente?"
-                + "\n1 - SIM"
-                + "\n2 - NÃO");
-        int opcao = in.nextInt();
-        switch (opcao) {
-            case 1:
-                arrayCliente.remove(cliente);
-                System.out.println("\nCliente exluído com sucesso\n");
-                break;
-            case 2:
-                System.out.println("\nOperação cancelada\n");
-                break;
-        }
-    }
-
-    public boolean verificaCadastrosCliente(ArrayList arrayCliente) {
-        return arrayCliente.isEmpty();
-    }
-    public void imprimeCliente(){
-        System.out.println("Código: " +this.codigo);
-        System.out.println("Nome: " +this.nome);
-        System.out.println("Logradouro: " +this.logradouro);
-        System.out.println("Número: " +this.numero);
-        System.out.println("Bairro: " +this.bairro);
-        System.out.println("Município: " +this.municipio);
-        System.out.println("Estado: " +this.estado);
-        System.out.println("Telefone: " +this.telefone);
-        System.out.println("CEP: " +this.cep);
-    }
+    // instancia Cliente
     public Cliente(String codigo, String nome, String logradouro, String bairro, String municipio, String estado, String telefone, String cep, int numero) {
         this.codigo = codigo;
         this.nome = nome;
@@ -75,6 +26,66 @@ public class Cliente {
     public Cliente() {
     }
 
+    //Cadastra o cliente
+    public void cadastraCliente() {
+        System.out.println("Insira o código: ");
+        this.codigo = in.next();
+        System.out.println("Insira o nome: ");
+        this.nome = in.next();
+        System.out.println("Insira o telefone: ");
+        this.telefone = in.next();
+        System.out.println("Insira o logradouro: ");
+        this.logradouro = in.next();
+        System.out.println("Insira o bairro: ");
+        this.bairro = in.next();
+        System.out.println("Insira o município: ");
+        this.municipio = in.next();
+        System.out.println("Insira o estado: ");
+        this.estado = in.next();
+        System.out.println("Insira o número: ");
+        this.numero = in.nextInt();
+        System.out.println("Insira o CEP: ");
+        this.cep = in.next();
+        System.out.println("---------------------------");
+    }
+
+    //verifica cadastros do cliente
+    public boolean verificaCadastrosCliente(ArrayList arrayCliente) {
+        return arrayCliente.isEmpty();
+    }
+
+    //excluí Cliente
+    public void excluiCliente(ArrayList arrayCliente, Cliente cliente) {
+        System.out.println("\nVocê tem certeza que deseja exluir esse cliente?"
+                + "\n1 - SIM"
+                + "\n2 - NÃO");
+        int opcao = in.nextInt();
+        switch (opcao) {
+            case 1:
+                arrayCliente.remove(cliente);
+                System.out.println("\nCliente exluído com sucesso\n");
+                break;
+            case 2:
+                System.out.println("\nOperação cancelada\n");
+                break;
+        }
+    }
+    
+
+    //imprime as informações do cliente
+    public void imprimeCliente() {
+        System.out.println("Código: " + this.codigo);
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Logradouro: " + this.logradouro);
+        System.out.println("Número: " + this.numero);
+        System.out.println("Bairro: " + this.bairro);
+        System.out.println("Município: " + this.municipio);
+        System.out.println("Estado: " + this.estado);
+        System.out.println("Telefone: " + this.telefone);
+        System.out.println("CEP: " + this.cep);
+    }
+
+    //getters e setters
     public Scanner getIn() {
         return in;
     }

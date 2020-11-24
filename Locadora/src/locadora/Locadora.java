@@ -33,10 +33,10 @@ public class Locadora {
     public static int SubmenuCliente() {
         Scanner leitor = new Scanner(System.in);
         System.out.println("CLIENTE");
-        System.out.println("O cliente é: "
-                + "1. Pessoa física"
-                + "2. Pessoa jurídica"
-                + "3. Voltar ao menu principal");
+        System.out.println("O cliente é: \n"
+                + "1. Pessoa física\n"
+                + "2. Pessoa jurídica\n"
+                + "3. Voltar ao menu principal\n");
         return Integer.parseInt(leitor.nextLine());
     }
 
@@ -56,10 +56,10 @@ public class Locadora {
         Scanner leitor = new Scanner(System.in);
         System.out.println("EMPRÉSTIMO");
         System.out.println("Escolha uma das opções:"
-                + "\n1. Cadastro"
-                + "\n2. Devolução"
-                + "\n3. Relatório"
-                + "\n4. Voltar ao Menu Principal");
+                + "\n1. Cadastro\n"
+                + "\n2. Devolução\n"
+                + "\n3. Relatório\n"
+                + "\n4. Voltar ao Menu Principal\n");
         return Integer.parseInt(leitor.nextLine());
     }
     
